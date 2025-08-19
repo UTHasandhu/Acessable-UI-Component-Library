@@ -12,9 +12,12 @@
   "dependencies": {
     "@axe-core/react": "^4.10.2",
     "@monaco-editor/react": "^4.7.0",
+    "@tailwindcss/vite": "^4.1.12",
     "axe-core": "^4.10.3",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
+    "node": "^24.6.0",
+    "npm": "^11.5.2",
     "react": "^19.1.1",
     "react-aria": "^3.42.0",
     "react-dom": "^19.1.1",
