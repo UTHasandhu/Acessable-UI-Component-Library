@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ComponentPanel from "../ComponentPanel";
+import ComponentPanel from "./ComponentPanel";
 
 test("renders empty state when nothing is selected", () => {
   render(<ComponentPanel selectedComponent={null} />);

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, within } from "@testing-library/react";
-import Sidebar from "../Sidebar";
+import Sidebar from "./Sidebar";
 
 test("clicking an item calls onSelect with that item's key", () => {
   const handleSelect = vi.fn();

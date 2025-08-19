@@ -1,5 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
-import PreviewPanel from "../PreviewPanel";
+import PreviewPanel from "./PreviewPanel";
 
 test("shows empty preview when nothing is selected", () => {
   render(<PreviewPanel selectedComponent={null} />);
