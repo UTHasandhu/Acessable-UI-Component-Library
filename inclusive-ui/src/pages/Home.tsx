@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Sidebar from "./sections/Sidebar";
 import ComponentPanel from "./sections/ComponentPanel";
 import PreviewPanel from "./sections/PreviewPanel";

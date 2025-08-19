@@ -1,5 +1,3 @@
-import React from "react";
-
 interface PreviewPanelProps {
   selectedComponent: string | null;
 }

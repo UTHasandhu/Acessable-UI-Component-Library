@@ -1,5 +1,3 @@
-import React from "react";
-
 interface SidebarProps {
   onSelect: (component: string) => void;
   selected: string | null;
