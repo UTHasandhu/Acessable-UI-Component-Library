@@ -30,6 +30,6 @@ export default function Sidebar({ onSelect, selected, components = DEFAULT_COMPO
           ))}
         </ul>
       </nav>
-    </aside>
+   </aside>
   );
 }
