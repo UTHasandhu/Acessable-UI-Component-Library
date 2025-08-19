@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc -noEmit",
+    "test": "vitest",
+    "test:ci": "vitest run --reporter=dot --passWithNoTests",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings=0"
   },
   "dependencies": {
     "@axe-core/react": "^4.10.2",

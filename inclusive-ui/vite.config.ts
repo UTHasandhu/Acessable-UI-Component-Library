@@ -9,10 +9,10 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  // test: {
-  //   globals: true,
-  //   environment: "jsdom",
-  //   setupFiles: "./tests/setupTests.ts",
-  // },
-  base: "inclusive-ui-component-library",
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./tests/setupTests.ts",
+  },
+  base: "/Acessable-UI-Component-Library",
 })
