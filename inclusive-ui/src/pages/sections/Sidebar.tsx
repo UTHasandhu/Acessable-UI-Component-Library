@@ -1,6 +1,6 @@
 // src/sections/Sidebar.tsx
 import React from "react";
-import { componentDocs } from "../../data/componentDocs";
+import { componentRegistry } from "../../data/componentRegistry";
 
 type SidebarProps = {
   onSelect: (name: string) => void;
@@ -8,7 +8,7 @@ type SidebarProps = {
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ onSelect, selected }) => {
-  const names = Object.keys(componentDocs);
+  const names = Object.keys(componentRegistry);
 
   return (
     <div className="bg-gray-800 text-white p-4 space-y-2">

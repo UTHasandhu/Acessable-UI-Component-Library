@@ -1,6 +1,6 @@
 // src/sections/ComponentPanel.tsx
 import React from "react";
-import { componentDocs } from "../../data/componentDocs";
+import { componentRegistry } from "../../data/componentRegistry";
 
 type ComponentPanelProps = {
   selectedComponent: string | null;
@@ -15,7 +15,7 @@ const ComponentPanel: React.FC<ComponentPanelProps> = ({ selectedComponent }) =>
     );
   }
 
-  const doc = componentDocs[selectedComponent];
+  const doc = componentRegistry[selectedComponent];
 
   return (
     <div className="p-6">

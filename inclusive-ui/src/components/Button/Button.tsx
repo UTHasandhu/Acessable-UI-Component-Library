@@ -1,4 +1,3 @@
-import React from "react";
 import clsx from "clsx";
 
 //Interface for acceptable button properties for the editor
