@@ -6,6 +6,7 @@ interface Props {
 }
 
 export default function Preview({ code }: Props) {
+    console.log(code)
   return (
     <LiveProvider code={code}>
       <div className="w-full h-full flex items-center justify-center bg-gray-50">

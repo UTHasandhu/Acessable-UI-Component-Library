@@ -23,6 +23,7 @@ const PreviewPanel: React.FC<PreviewPanelProps> = ({ selectedComponent }) => {
 
   const comp = componentDocs[selectedComponent];
   const codeToRender = appliedCode ?? comp.code;
+  console.log(draftCode);
 
   return (
     <div className="flex flex-col h-full border-l">
@@ -35,7 +36,7 @@ const PreviewPanel: React.FC<PreviewPanelProps> = ({ selectedComponent }) => {
       <div className="flex-1 flex flex-col">
         <Editor
           initialCode={draftCode ?? comp.code}
-          onChange={setDraftCode}
+          onChangeEvent={setDraftCode}
         />
 
         <div className="flex justify-center items-center gap-4 p-4">
