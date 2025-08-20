@@ -10,41 +10,43 @@ type PreviewPanelProps = {
 };
 
 const PreviewPanel: React.FC<PreviewPanelProps> = ({ selectedComponent }) => {
+  const [appliedCode, setAppliedCode] = useState<string | null>(null);
+  const [draftCode, setDraftCode] = useState<string | null>(null);
+
   if (!selectedComponent) {
     return (
-      <div className="w-full h-full flex items-center justify-center text-gray-500">
-        Select a component to preview
+      <div className="p-4 text-gray-500 flex items-center justify-center">
+        Select a component to start
       </div>
     );
   }
 
-  const doc = componentDocs[selectedComponent];
-  const [code, setCode] = useState(doc.code);
-  const [appliedCode, setAppliedCode] = useState(doc.code);
-
-  const handleApply = () => setAppliedCode(code);
+  const comp = componentDocs[selectedComponent];
+  const codeToRender = appliedCode ?? comp.code;
 
   return (
-    <div className="flex flex-col border-l border-gray-300 bg-white h-full overflow-y-auto">
-      {/* Preview */}
-      <div className="h-64 border-b border-gray-200">
-        <Preview code={appliedCode} />
+    <div className="flex flex-col h-full border-l">
+      {/* Preview takes up 25% of height */}
+      <div className="h-1/4 border-b">
+        <Preview code={codeToRender} />
       </div>
 
-      {/* Editor + Apply */}
-      <div className="h-[500px] border-b border-gray-200 flex flex-col">
-        <button
-          onClick={handleApply}
-          className="self-start mb-2 px-3 py-1 bg-green-600 text-white text-sm rounded shadow hover:bg-green-700"
-        >
-          Apply Code
-        </button>
-        <Editor code={code} onChange={setCode} />
-      </div>
+      {/* Editor takes rest of the space */}
+      <div className="flex-1 flex flex-col">
+        <Editor
+          initialCode={draftCode ?? comp.code}
+          onChange={setDraftCode}
+        />
 
-      {/* Export */}
-      <div className="p-4">
-        <ExportButton code={appliedCode} />
+        <div className="flex justify-center items-center gap-4 p-4">
+          <button
+            onClick={() => setAppliedCode(draftCode ?? comp.code)}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700"
+          >
+            Apply
+          </button>
+          <ExportButton code={codeToRender} />
+        </div>
       </div>
     </div>
   );

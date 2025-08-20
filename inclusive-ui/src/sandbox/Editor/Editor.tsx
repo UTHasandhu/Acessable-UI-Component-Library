@@ -1,19 +1,23 @@
-// src/sandbox/Editor/Editor.tsx
-import React from "react";
+import MonacoEditor from "@monaco-editor/react";
 
-type EditorProps = {
-  code: string;
-  onChange: (newCode: string) => void;
-};
+interface Props {
+  initialCode: string;
+  onChange: (code: string | null) => void;
+}
 
-const Editor: React.FC<EditorProps> = ({ code, onChange }) => {
+export default function Editor({ initialCode, onChange }: Props) {
   return (
-    <textarea
-      className="w-full h-full font-mono text-sm bg-gray-900 text-green-300 p-2 resize-none"
-      value={code}
-      onChange={(e) => console.log(e.target.value)}
+    <MonacoEditor
+      height="100%"
+      defaultLanguage="tsx"
+      value={initialCode}
+      theme="vs-dark"
+      // onChange={onChange}
+      options={{
+        minimap: { enabled: false },
+        fontSize: 14,
+        scrollBeyondLastLine: false,
+      }}
     />
   );
-};
-
-export default Editor;
+}
