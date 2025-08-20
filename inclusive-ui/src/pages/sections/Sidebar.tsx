@@ -1,33 +1,30 @@
-interface SidebarProps {
-  onSelect: (component: string) => void;
+// src/sections/Sidebar.tsx
+import React from "react";
+import { componentDocs } from "../../data/componentDocs";
+
+type SidebarProps = {
+  onSelect: (name: string) => void;
   selected: string | null;
-  components?: string[]; // allow injection for tests
-}
+};
 
-const DEFAULT_COMPONENTS = ["Button", "Modal", "Form"];
+const Sidebar: React.FC<SidebarProps> = ({ onSelect, selected }) => {
+  const names = Object.keys(componentDocs);
 
-export default function Sidebar({ onSelect, selected, components = DEFAULT_COMPONENTS }: SidebarProps) {
   return (
-    <aside className="bg-white border-r border-gray-200 p-2" data-testid="sidebar">
-      <h2 className="text-lg font-semibold mb-4">Components</h2>
-      <nav aria-label="Components">
-        <ul className="space-y-2" role="list">
-          {components.map((comp, idx) => (
-            <li key={comp}>
-              <button
-                type="button"
-                role="menuitem"
-                data-testid={`sidebar-item-${idx}`}
-                aria-current={selected === comp ? "page" : undefined}
-                onClick={() => onSelect(comp)}
-                className={`w-full text-left p-2 rounded-md ${selected === comp ? "bg-blue-600 text-white" : "hover:bg-gray-100"}`}
-              >
-                {comp}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
-   </aside>
+    <div className="bg-gray-800 text-white p-4 space-y-2">
+      {names.map((name) => (
+        <button
+          key={name}
+          onClick={() => onSelect(name)}
+          className={`block w-full text-left px-3 py-2 rounded ${
+            selected === name ? "bg-gray-600" : "hover:bg-gray-700"
+          }`}
+        >
+          {name}
+        </button>
+      ))}
+    </div>
   );
-}
+};
+
+export default Sidebar;

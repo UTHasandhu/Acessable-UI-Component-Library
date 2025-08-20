@@ -1,31 +1,50 @@
-// src/sandbox/PreviewPanel.tsx
-import React from "react";
+// src/sections/PreviewPanel.tsx
+import React, { useState } from "react";
 import Preview from "../../sandbox/Preview/Preview";
-import Description from "./Description/Description";
 import Editor from "../../sandbox/Editor/Editor";
 import ExportButton from "../../sandbox/Export/ExportButton";
+import { componentDocs } from "../../data/componentDocs";
 
-const PreviewPanel: React.FC = () => {
+type PreviewPanelProps = {
+  selectedComponent: string | null;
+};
+
+const PreviewPanel: React.FC<PreviewPanelProps> = ({ selectedComponent }) => {
+  if (!selectedComponent) {
+    return (
+      <div className="w-full h-full flex items-center justify-center text-gray-500">
+        Select a component to preview
+      </div>
+    );
+  }
+
+  const doc = componentDocs[selectedComponent];
+  const [code, setCode] = useState(doc.code);
+  const [appliedCode, setAppliedCode] = useState(doc.code);
+
+  const handleApply = () => setAppliedCode(code);
+
   return (
-    <div className="w-1/3 flex flex-col border-l border-gray-300 bg-white h-screen overflow-y-auto">
-      {/* Preview section */}
+    <div className="flex flex-col border-l border-gray-300 bg-white h-full overflow-y-auto">
+      {/* Preview */}
       <div className="h-64 border-b border-gray-200">
-        <Preview />
+        <Preview code={appliedCode} />
       </div>
 
-      {/* Description section */}
-      <div className="p-4 border-b border-gray-200">
-        <Description />
+      {/* Editor + Apply */}
+      <div className="h-[500px] border-b border-gray-200 flex flex-col">
+        <button
+          onClick={handleApply}
+          className="self-start mb-2 px-3 py-1 bg-green-600 text-white text-sm rounded shadow hover:bg-green-700"
+        >
+          Apply Code
+        </button>
+        <Editor code={code} onChange={setCode} />
       </div>
 
-      {/* Editor section */}
-      <div className="h-[500px] border-b border-gray-200">
-        <Editor />
-      </div>
-
-      {/* Export button section */}
+      {/* Export */}
       <div className="p-4">
-        <ExportButton />
+        <ExportButton code={appliedCode} />
       </div>
     </div>
   );
