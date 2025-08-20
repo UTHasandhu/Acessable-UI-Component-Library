@@ -1,5 +1,5 @@
 import React from "react";
-import type { PropControl } from "../data/componentRegistry";
+import type { PropControl } from "../../../../data/componentRegistry";
 
 type PropControlsProps = {
   controls: Record<string, PropControl>;
@@ -20,6 +20,7 @@ const PropControls: React.FC<PropControlsProps> = ({
       {Object.entries(controls).map(([key, control]) => {
         const val = value[key];
 
+        // If it contains a text input
         if (control.type === "text") {
           return (
             <label key={key} className="flex flex-col text-sm">
@@ -33,6 +34,7 @@ const PropControls: React.FC<PropControlsProps> = ({
           );
         }
 
+        // if it contains a select input
         if (control.type === "select") {
           return (
             <label key={key} className="flex flex-col text-sm">

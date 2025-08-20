@@ -1,6 +1,6 @@
 // src/sections/ComponentPanel.tsx
 import React from "react";
-import { componentRegistry } from "../../data/componentRegistry";
+import { componentRegistry } from "../../../data/componentRegistry";
 
 type ComponentPanelProps = {
   selectedComponent: string | null;

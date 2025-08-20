@@ -1,8 +1,8 @@
 // src/App.tsx
 import { useState } from "react";
-import Sidebar from "./sections/Sidebar";
-import ComponentPanel from "./sections/ComponentPanel";
-import PreviewPanel from "./sections/PreviewPanel";
+import Sidebar from "./sections/SideBar/Sidebar";
+import ComponentPanel from "./sections/ComponentPanel/ComponentPanel";
+import PreviewPanel from "./sections/PreviewPanel/PreviewPanel";
 
 export default function Home() {
   const [selectedComponent, setSelectedComponent] = useState<string | null>(null);

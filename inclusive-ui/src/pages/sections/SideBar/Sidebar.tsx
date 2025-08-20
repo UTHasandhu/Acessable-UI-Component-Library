@@ -1,6 +1,6 @@
 // src/sections/Sidebar.tsx
 import React from "react";
-import { componentRegistry } from "../../data/componentRegistry";
+import { componentRegistry } from "../../../data/componentRegistry";
 
 type SidebarProps = {
   onSelect: (name: string) => void;

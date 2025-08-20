@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { componentRegistry } from "../../data/componentRegistry";
-import Preview from "../../sandbox/Preview";
-import PropControls from "../../sandbox/PropControls";
-import InlineJsonEditor from "../../sandbox/InlineJsonEditor";
+import { componentRegistry } from "../../../data/componentRegistry";
+import Preview from "./Preview/Preview";
+import PropControls from "./PropControls/PropControls";
+import InlineJsonEditor from "./InlineJsonEditor/InlineJsonEditor";
+import ExportButton from "./ExportButton/ExportButton";
 
 type PreviewPanelProps = {
   selectedComponent: string | null;
@@ -77,14 +78,7 @@ const PreviewPanel: React.FC<PreviewPanelProps> = ({ selectedComponent }) => {
       {/* 4) EXPORT BUTTON ROW */}
       <div className="p-4">
         {/* TODO: Drop in your existing ExportButton here */}
-        {/* <ExportButton code={someCodeString} /> */}
-        <button
-          className="w-full px-4 py-2 bg-blue-600 text-white font-medium rounded-md shadow hover:bg-blue-700 transition"
-          disabled
-          title="Wire your ExportButton here"
-        >
-          Export (wire me)
-        </button>
+        <ExportButton code={meta.Component} />
       </div>
     </div>
   );
