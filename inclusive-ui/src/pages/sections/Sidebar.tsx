@@ -8,7 +8,7 @@ const DEFAULT_COMPONENTS = ["Button", "Modal", "Form"];
 
 export default function Sidebar({ onSelect, selected, components = DEFAULT_COMPONENTS }: SidebarProps) {
   return (
-    <aside className="bg-white border-r border-gray-200 p-4" data-testid="sidebar">
+    <aside className="bg-white border-r border-gray-200 p-2" data-testid="sidebar">
       <h2 className="text-lg font-semibold mb-4">Components</h2>
       <nav aria-label="Components">
         <ul className="space-y-2" role="list">
