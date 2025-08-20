@@ -1,5 +1,7 @@
 // src/data/componentDocs.ts
 import Button from "../components/Button/Button";
+import Dropdown from "../components/Dropdown/Dropdown";
+import Modal from "../components/Modal/Modal";
 
 // Type definitions for component metadata
 export type ComponentMeta = {
@@ -40,4 +42,34 @@ export const componentRegistry: Record<string, ComponentMeta> = {
       `<Button label="${p.label}" variant="${p.variant}" size="${p.size}"${p.disabled ? " disabled" : ""} />`,
   },
   // Add more components here as you build them
+  Dropdown: {
+    name: "Dropdown",
+    Component: Dropdown,
+    description: "A customizable dropdown component",
+    defaultProps: {
+      options: ["Option 1", "Option 2", "Option 3"],
+      selected: "Option 1",
+    },
+    propControls: {
+      options: { type: "text" }, // For simplicity, using text input for options
+      selected: { type: "select", options: ["Option 1", "Option 2", "Option 3"] },
+    },
+    generateUsage: (p) =>
+      `<Dropdown options={${JSON.stringify(p.options)}} selected="${p.selected}" />`,
+  },
+  Modal: {
+    name: "Modal",
+    Component: Modal,
+    description: "A simple modal component",
+    defaultProps: {
+      isOpen: false,
+      title: "Modal Title",
+    },
+    propControls: {
+      isOpen: { type: "boolean" },
+      title: { type: "text" },
+    },
+    generateUsage: (p) =>
+      `<Modal isOpen={${p.isOpen}} title="${p.title}">...</Modal>`,
+  },
 };

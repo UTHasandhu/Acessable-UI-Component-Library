@@ -1,12 +1,13 @@
 import clsx from "clsx";
 
-//Interface for acceptable button properties for the editor
 type ButtonProps = {
   label: string;
   onClick?: () => void;
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
+  ariaLabel?: string;
 };
 
 const baseStyles =
@@ -24,9 +25,20 @@ const sizes: Record<string, string> = {
   lg: "px-6 py-3 text-lg",
 };
 
-export default function Button({ label, onClick, variant = "primary", size = "md", disabled = false }: ButtonProps) {
+export default function Button({
+  label,
+  onClick,
+  variant = "primary",
+  size = "md",
+  disabled = false,
+  type = "button",
+  ariaLabel,
+}: ButtonProps) {
   return (
     <button
+      type={type}
+      aria-label={ariaLabel || label}
+      aria-disabled={disabled}
       className={clsx(
         baseStyles,
         variants[variant],
