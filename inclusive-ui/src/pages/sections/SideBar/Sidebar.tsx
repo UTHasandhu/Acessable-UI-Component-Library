@@ -23,9 +23,9 @@ export default function Sidebar({ onSelect, selected }: SidebarProps) {
 
       {/* Navigation List */}
       <nav className="flex-1 overflow-y-auto px-3 py-4 custom-scrollbar">
-        <ul className="space-y-3">
+        <ul className="space-y-2">
           {names.map((name) => (
-            <li key={name}>
+            <li key={name} className="w-full">
               <Button
                 label={name}
                 onClick={() => onSelect(name)}
@@ -38,10 +38,6 @@ export default function Sidebar({ onSelect, selected }: SidebarProps) {
         </ul>
       </nav>
 
-      {/* Footer */}
-      <div className="px-6 py-4 border-t border-gray-800 text-center text-gray-500 text-xs">
-        <p>Built with React & Tailwind CSS</p>
-      </div>
     </aside>
   );
 }

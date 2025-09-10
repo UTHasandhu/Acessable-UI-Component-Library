@@ -34,6 +34,12 @@ export default function Button({
   type = "button",
   ariaLabel,
 }: ButtonProps) {
+  console.log(clsx(
+        baseStyles,
+        variants[variant],
+        sizes[size],
+        disabled && "opacity-50 cursor-not-allowed"
+      ));
   return (
     <button
       type={type}
