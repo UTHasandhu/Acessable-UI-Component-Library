@@ -13,12 +13,7 @@ export default function Sidebar({ onSelect, selected }: SidebarProps) {
   return (
     <aside className="flex flex-col h-full w-full bg-gray-900 text-white shadow-xl border-r border-gray-800">
       {/* Sidebar Header */}
-      <div className="px-6 py-6 border-b border-gray-800">
-        <h2 className="text-2xl font-bold tracking-tight">Component Library</h2>
-        <p className="text-sm text-gray-400 mt-1">
-          Browse and explore UI components
-        </p>
-      </div>
+        <h2 className="text-xl font-bold ">Component Library</h2>
       
       {/* Navigation List */}
       <nav className="flex-1 overflow-y-auto px-3 py-4 custom-scrollbar">
