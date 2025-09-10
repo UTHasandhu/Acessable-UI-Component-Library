@@ -11,11 +11,13 @@ const ComponentPanel: React.FC<ComponentPanelProps> = ({ selectedComponent }) =>
   // Early return for no selection
   if (!selectedComponent) {
     return (
-      <div className="flex items-center justify-center h-64 text-gray-500 bg-gray-50 rounded-lg">
-        <div className="text-center">
-          <div className="text-4xl mb-2">📦</div>
-          <p className="text-lg font-medium">No component selected</p>
-          <p className="text-sm">Choose a component from the sidebar to view its details</p>
+      <div className="flex flex-col h-full border-l border-gray-300 bg-gray-50">
+        <div className="flex-1 flex items-center justify-center text-gray-500">
+          <div className="text-center">
+            <div className="text-4xl mb-2">📦</div>
+            <p className="text-lg font-medium">No component selected</p>
+            <p className="text-sm">Choose a component from the sidebar to view its details</p>
+          </div>  
         </div>
       </div>
     );
